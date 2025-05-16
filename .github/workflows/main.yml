@@ -35,3 +35,15 @@ jobs:
           context: .
           push: true
           tags: sadok21/angularmars-app.1.${{github.run_number}}
+      - name: Email notification
+        uses: cinotify/github-action@main
+        with:
+          to: 'sadoksomii20@gmail.com'
+          subject: 'Pipeline Completed'
+          body: '<em>Your GitHub Actions workflow has finished successfully.</em>'
+          type: 'text/html'
+        env:
+          SMTP_SERVER: smtp.gmail.com
+          SMTP_PORT: 587
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
