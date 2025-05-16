@@ -38,9 +38,9 @@ jobs:
       - name: Email notification
         uses: cinotify/github-action@main
         with:
-          to: 'sadoksomii20@gmail.com'
+          to: 'sadoksomii20@gmail.com,alyabouhajja58@gmail.com'
           subject: 'Pipeline Completed'
-          body: '<em>Your GitHub Actions workflow has finished successfully.</em>'
+          body: '<em>aloulou bazdig kamel lpipeline fel github action mte3o.</em>'
           type: 'text/html'
         env:
           SMTP_SERVER: smtp.gmail.com
