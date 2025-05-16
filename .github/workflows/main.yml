@@ -19,7 +19,7 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          
+
       - name: Fail build on High/Criticial Vulnerabilities
         uses: aquasecurity/trivy-action@master
         with:
@@ -29,10 +29,6 @@ jobs:
           severity: HIGH,CRITICAL
           ignore-unfixed: true
           exit-code: 1
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: 'trivy-results.sarif'
       - name: build and push docker image
         uses: docker/build-push-action@v4
         with:
