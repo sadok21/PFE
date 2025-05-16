@@ -19,16 +19,15 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.28.0
+      - name: Fail build on High/Criticial Vulnerabilities
+        uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-        env:
-          TRIVY_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
-          TRIVY_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN}}
-
+          scan-type: "fs"
+          format: table
+          scan-ref: .
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: 1
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
         with:
