@@ -19,6 +19,7 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
       - name: Fail build on High/Criticial Vulnerabilities
         uses: aquasecurity/trivy-action@master
         with:
