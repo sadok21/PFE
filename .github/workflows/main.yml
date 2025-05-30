@@ -40,7 +40,7 @@ jobs:
         with:
           to: 'sadoksomii20@gmail.com,alyabouhajja58@gmail.com'
           subject: 'Pipeline Completed'
-          body: '<em>aloulou bazdig kamel lpipeline fel github action mte3o.</em>'
+          body: '<em>your pipeline hass been finished successfully.</em>'
           type: 'text/html'
         env:
           SMTP_SERVER: smtp.gmail.com
