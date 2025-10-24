@@ -40,7 +40,7 @@ jobs:
         with:
           to: 'sadoksomii20@gmail.com,alyabouhajja58@gmail.com'
           subject: 'Pipeline Completed'
-          body: '<em>your pipeline hass been finished successfully today.</em>'
+          body: '<em>your pipeline has been locked!now and then.</em>'
           type: 'text/html'
         env:
           SMTP_SERVER: smtp.gmail.com
